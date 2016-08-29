@@ -202,11 +202,11 @@ def erbs2hz(erbs):
     return hz;
 
 def swipe(audioPath):
-    print ("Swipe running",audioPath);
+    print("Swipe running",audioPath);
     fs, x = wavfile.read(audioPath);
     np.seterr(divide='ignore', invalid='ignore');
     p,t,s = swipep(x, fs, [100,600], 0.001, 0.3);
-
+    print("Pitches: ", p)
     fig = plt.figure();
     plt.plot(p);
     fig.savefig('hummed.png');
